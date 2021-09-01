@@ -602,7 +602,7 @@ protocol ActorTransport: Sendable {
 
 At a high-level, a transport has two major responsibilities:
 
-- **Lifecycle management:** creating and resolving actor identifies, which are used by the Swift runtime to construct distributed actor instances.
+- **Lifecycle management:** creating and resolving actor identities, which are used by the Swift runtime to construct distributed actor instances.
 - **Messaging:** perform all message dispatch and handling on behalf of a distributed actor it manages.
 
 Distributed actor lifecycle was already discussed in the previous section, so now let us focus on how messaging is implemented by a transport.
@@ -928,7 +928,7 @@ try await anyGreeter.greet("Caplin, the Capybara")
 
 Notice that this pattern, by design, requires actors to opt-into being discoverable. This is important for a number of reasons, most importantly for security we would not want to allow any node in the system to resolve _arbitrary_ actor references by guessing their types and names. Instead, only distributed actors which opt into this discovery mechanism participate in it.
 
-It is still possible to _explicitly_ share an actor reference or identity throught messaging though. If security demands it, we can provide ways to ban specific actors from being shared in this way as well though.
+It is still possible to _explicitly_ share an actor reference or identity through messaging though. If security demands it, we can provide ways to ban specific actors from being shared in this way as well though.
 
 ## Alternatives Considered
 
