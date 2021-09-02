@@ -1217,7 +1217,7 @@ extension Greeter {
 
 Second, for outgoing messages still, we need to replace the remote function. This is currently done using the direct dynamic replacement API, however as we mature this piece of the proposal this may either get its own attribute, or become unnecessary. 
 
-The dynamic replacement function must be `nonisolated` because the actor is operating on is always _remote_ and therefore has no state, and access to its properties (other than the transport and id) must be prevented, because they don't exist. Thankfully the `nonisolated` attribute achieves exactly that, bu making the function effectively be semantically "outside" the actor.
+The dynamic replacement function must be `nonisolated` because the actor is operating on is always _remote_ and therefore has no state, and access to its properties (other than the transport and id) must be prevented, because they don't exist. Thankfully the `nonisolated` attribute achieves exactly that, but making the function effectively be semantically "outside" the actor.
 
 ```swift
 extension Greeter { 
